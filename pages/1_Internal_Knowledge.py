@@ -40,30 +40,20 @@ if text_search:
             st.markdown(f"**{row['Channel'].strip()}**")
             butt = st.button(f"*{row['Title'].strip()}*")
             if butt:
-                col1, col2 = st.columns([2, 1])
-
                 transcript = ""
-                with col1:
-                    tab1, tab2, tab3 = st.tabs(["Video", "Article", "Audio"])
+                tab1, tab2, tab3 = st.tabs(["Video", "Article", "Audio"])
 
-                with tab1:
-                    st.header(row['Title'].strip())
-                    st.video(row['Video'])
-                    with st.expander("Transcript"):
-                        whisper_response = generate_transcript(row['Video'])
-                        transcript = whisper_response["text"]
-                        st.write(transcript)
+            with tab1:
+                st.header(row['Title'].strip())
+                st.video(row['Video'])
+                with st.expander("Transcript"):
+                    whisper_response = generate_transcript(row['Video'])
+                    transcript = whisper_response["text"]
+                    st.write(transcript)
 
-                with tab2:
-                    st.write(create_content(transcript))
+            with tab2:
+                st.write(create_content(transcript))
 
-                with tab3:
-                    st.header("Listen to it")
-                    st.audio(data="./audio.mp4")
-                
-                with col2:
-                    input_text = st.text_input("You: ","Hello, how are you?", key="input")
-                    message("My message") 
-                    message("Use chatGPT here", is_user=True)  # align's the message to the right
-
-
+            with tab3:
+                st.header("Listen to it")
+                st.audio(data="./audio.mp4")
