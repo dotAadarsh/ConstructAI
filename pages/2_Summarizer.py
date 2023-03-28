@@ -4,17 +4,27 @@ import requests
 from bs4 import BeautifulSoup
 from streamlit_chat import message
 import openai_summarize
+import openai
 
-OpenAI_Key = st.secrets["OPENAI_KEY"]
+openai.api_key = st.secrets["OPENAI_KEY"]
 
-def chatbot():
-    message("My message") 
-    message("Hello bot!", is_user=True)  # align's the message to the right
+@st.cache_data
+def get_answer(question):
+    completion = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo", 
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant for providing quality education"},
+        {"role": "user", "content": question},
+    ]
+    )
+
+    answer = completion['choices'][0]['message']['content']
+    return answer
 
 
 @st.cache_data
 def summarizer(text):
-    openai_summarizer = openai_summarize.OpenAISummarize(OpenAI_Key)
+    openai_summarizer = openai_summarize.OpenAISummarize(openai.api_key)
     summary = openai_summarizer.summarize_text(text)
 
     return summary
@@ -24,7 +34,7 @@ def main():
     st.title('Text summarizer')
     
     col1, col2 = st.columns([2, 1])
-
+    fulltext=""
     with col1: 
         Option = st.selectbox("Choose the format", ('Text Input', 'Upload PDF', 'Web Article'), index=2)
         if Option == 'Text Input':
@@ -93,9 +103,11 @@ def main():
                     st.write(summarized_text)
     
     with col2:
-        chatbot()
-        
-
+        question = st.text_input("Chat: ")
+        if question:
+            answer = get_answer(question)
+            message(question, is_user=True)
+            message(answer) 
 
 if __name__ == "__main__":
     main()
