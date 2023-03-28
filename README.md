@@ -16,3 +16,13 @@ Our project Construct.AI implements two tools Internal knowledge database and a 
 The Internal Knowledge database is designed so that the staff/faculties can add resources in google sheets (CSV file) which are then integrated with AI. It provides a transcript, AI-generated blog, and audio.
 
 The summarizer tool extracts texts from various formats of input and provides a summary of it. It is also integrated with ChatGPT to ask content-related queries.
+
+### How to run?
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dotAadarsh/ConstructAI)
+
+You can click the above `Open in Gitpod` to run a pre-build env on cloud or clone it follow the below steps:
+
+- Install requirements
+- Get your [OpenAI](https://openai.com/) key and add it in `secrets.toml` file
+- To run type `streamlit run app.py` on the terminal.
