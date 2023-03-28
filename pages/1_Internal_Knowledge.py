@@ -43,17 +43,17 @@ if text_search:
                 transcript = ""
                 tab1, tab2, tab3 = st.tabs(["Video", "Article", "Audio"])
 
-            with tab1:
-                st.header(row['Title'].strip())
-                st.video(row['Video'])
-                with st.expander("Transcript"):
-                    whisper_response = generate_transcript(row['Video'])
-                    transcript = whisper_response["text"]
-                    st.write(transcript)
+                with tab1:
+                    st.header(row['Title'].strip())
+                    st.video(row['Video'])
+                    with st.expander("Transcript"):
+                        whisper_response = generate_transcript(row['Video'])
+                        transcript = whisper_response["text"]
+                        st.write(transcript)
 
-            with tab2:
-                st.write(create_content(transcript))
+                with tab2:
+                    st.write(create_content(transcript))
 
-            with tab3:
-                st.header("Listen to it")
-                st.audio(data="./audio.mp4")
+                with tab3:
+                    st.header("Listen to it")
+                    st.audio(data="./audio.mp4")
