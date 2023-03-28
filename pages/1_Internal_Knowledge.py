@@ -3,6 +3,7 @@ import pandas as pd
 from streamlit_chat import message
 from transcript import generate_transcript
 from generate_blog import create_content
+import openai
 
 openai.api_key = st.secrets["OPENAI_KEY"]
 
