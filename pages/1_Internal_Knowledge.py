@@ -4,6 +4,8 @@ from streamlit_chat import message
 from transcript import generate_transcript
 from generate_blog import create_content
 
+openai.api_key = st.secrets["OPENAI_KEY"]
+
 st.header("Internal Knowledge")
 st.caption("Empower your students with knowledge at their fingertips")
 
