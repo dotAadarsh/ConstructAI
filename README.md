@@ -1,12 +1,18 @@
 # Construct
 Constructing the Quality Education with AI
 
+**Theme:** Quality Education
 
-### Problems
+**Problem:**
 
-- Summarization - There has been a surge in the amount of textual data from various sources. This wealth of text contains valuable insights and must be effectively summarized in order to be useful.
+Despite the availability of educational resources, many students struggle to access quality education that meets their individual needs and learning styles. Our app aims to address this issue by leveraging AI technology to provide personalized and engaging educational content in various formats including transcripts, audio, video, and AI-generated blogs for an internal knowledge database. By tailoring the learning experience to each student’s needs, our app strives to improve educational outcomes and promote lifelong learning.
 
-- Multilingual transcript - The objective of addressing the multilingual problem in education is to create a more inclusive and accessible learning environment for students who speak languages other than the dominant language in the school or community. This can involve providing translation and interpretation services, offering bilingual or multilingual education programs, and supporting language learning in the classroom.
+In today’s fast-paced world, students are often overwhelmed by the sheer volume of educational content available in various formats. It can be challenging to sift through and comprehend all the information, leading to suboptimal learning outcomes. Our app aims to address this issue by leveraging AI technology to summarize text contents in various formats, providing students with concise and easily digestible information. By making educational content more accessible and manageable, our app strives to improve educational outcomes and promote lifelong learning.
 
-- Semantic search - Documents can be used to help provide quality education by allowing students to quickly and easily find the information they need. Rather than having to go through long lists of search results, students can use semantic search to find the exact information they need, saving time and making the learning process more efficient. Additionally, semantic search can help educators and administrators better organize and manage documents, as well as make them more accessible for students. This can help ensure that students are able to find the information they need quickly and easily, as well as have access to the most up-to-date versions of documents. 
+**Solution:**
 
+Our project Construct.AI implements two tools Internal knowledge database and a summarizer for the above problem statements. The main idea is to implement AI in education to solve various problems.
+
+The Internal Knowledge database is designed so that the staff/faculties can add resources in google sheets (CSV file) which are then integrated with AI. It provides a transcript, AI-generated blog, and audio.
+
+The summarizer tool extracts texts from various formats of input and provides a summary of it. It is also integrated with ChatGPT to ask content-related queries.
